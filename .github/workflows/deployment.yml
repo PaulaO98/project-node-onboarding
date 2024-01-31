@@ -46,11 +46,6 @@ jobs:
     - name: Set up Sequelize CLI
       run: npm install --save-dev sequelize-cli
 
-    - name: Run migrations
-      run: npx sequelize-cli db:migrate
-      env:
-        DATABASE_URL: postgres://user:password@localhost:5432/testdb
-
     - name: Run tests
       run: npm test
 
