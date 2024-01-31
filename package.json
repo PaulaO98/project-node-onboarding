@@ -1,0 +1,26 @@
+{
+  "name": "miniproyecto",
+  "version": "1.0.0",
+  "description": "proyecto estudio",
+  "main": "\u001b[D\u001b[D\u001b[D\u001bma\u001b[Cmain\u001b[C\u001b[C\u001b[C\u001b[C\u001b[",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paula OSpina\u001b[D\u001b[D\u001b[D\u001b[s",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.10",
+    "rimraf": "^5.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@types/nodemon": "^1.19.2",
+    "express": "^4.18.2",
+    "oracledb": "^6.3.0",
+    "pg": "^8.11.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.32.1"
+  }
+}
