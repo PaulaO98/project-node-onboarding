@@ -1,0 +1,61 @@
+#Define el nombre del flujo de trabajo que aparecerá en GitHub.
+name: Node.js CI
+
+
+# Especifica los eventos que desencadenarán el flujo de trabajo. 
+# En este caso, se ejecuta con push y pull_request al branch main.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+#Define los trabajos que se ejecutarán. Aquí solo tenemos un trabajo llamado build-and-test.
+jobs:
+  build-and-test:
+    #Indica en qué tipo de máquina virtual se ejecutará el trabajo. ubuntu-latest se refiere 
+    #a la última versión de Ubuntu disponible en GitHub Actions.
+    runs-on: ubuntu-latest 
+
+    #Permite configurar servicios de contenedores que el trabajo necesita, como una base de datos PostgreSQL.
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+
+    #Son los pasos individuales que se ejecutarán dentro del trabajo. 
+    #Cada paso puede ejecutar un comando o utilizar una acción existente.
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Set up Sequelize CLI
+      run: npm install --save-dev sequelize-cli
+
+    - name: Run migrations
+      run: npx sequelize-cli db:migrate
+      env:
+        DATABASE_URL: postgres://user:password@localhost:5432/testdb
+
+    - name: Run tests
+      run: npm test
+
+      #Define las variables de entorno que estarán disponibles para los comandos que se ejecuten.
+      env:
+        NODE_ENV: test
+        DB_URI: 'localhost:1521/XEPDB1'
+        PORT_EXPRESS: 80
