@@ -9,6 +9,6 @@ app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });
 
-app.use(express.json()) //Para que permita recibir datos por nedio de Post
+app.use(express.json()) //Para que permita recibir datos por medio de Post
 
 app.use("/api/v1",router);

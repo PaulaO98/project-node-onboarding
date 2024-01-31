@@ -31,10 +31,14 @@ router.get("/:id", (req:Request,res:Response) => {
 })
 
 router.post("/",(req:Request,res:Response) =>{
+    console.log('res', res)
     userController.saveUser(req.body).then((user:any) =>{
         if (user.length===0) throw new Error("Error to save user");
+        console.log('res', res)
+
         return user
     }).then((data:any)=>{
+        console.log('res', res)
         res.json(data)
     }).catch((err: any) =>{
         res.status(404).json({message: err.message})

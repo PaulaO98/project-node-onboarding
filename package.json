@@ -4,14 +4,18 @@
   "description": "proyecto estudio",
   "main": "\u001b[D\u001b[D\u001b[D\u001bma\u001b[Cmain\u001b[C\u001b[C\u001b[C\u001b[C\u001b[",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Paula OSpina\u001b[D\u001b[D\u001b[D\u001b[s",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/jest": "^29.5.11",
     "@types/node": "^17.0.10",
+    "jest": "^29.7.0",
     "rimraf": "^5.0.1",
+    "sequelize-mock": "^0.10.2",
+    "ts-jest": "^29.1.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.5.5"
   },
@@ -22,5 +26,9 @@
     "pg": "^8.11.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.32.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   }
 }
