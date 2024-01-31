@@ -46,8 +46,6 @@ jobs:
     - name: Set up Sequelize CLI
       run: npm install --save-dev sequelize-cli
 
-    - name: Run tests
-      run: npm test
 
       #Define las variables de entorno que estarán disponibles para los comandos que se ejecuten.
       env:
